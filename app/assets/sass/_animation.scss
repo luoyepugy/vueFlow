@@ -1,0 +1,567 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// animate.scss
+//-----------------------------------------------------
+%animation-basic {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+@mixin animation-fade($className: fade, $from: 0.815, $to: 1.185) {
+  .#{$className}-enter {
+    animation-name: fadeIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: fadeOut;
+    @extend %animation-basic;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale($from);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale($to);
+    }
+  }
+}
+
+@mixin animation-down($className: down, $value: 100%) {
+  .#{$className}-enter {
+    animation-name: downIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: downOut;
+    @extend %animation-basic;
+  }
+  @keyframes downIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, $value, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes downOut {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, $value, 0);
+    }
+  }
+}
+
+@mixin animation-up($className: up, $value: -100%) {
+  .#{$className}-enter {
+    animation-name: upIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: upOut;
+    @extend %animation-basic;
+  }
+  @keyframes upIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, $value, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes upOut {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, $value, 0);
+    }
+  }
+}
+
+@mixin animation-left($className: transleft, $value: -100%) {
+  .#{$className}-enter {
+    animation-name: leftIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: leftOut;
+    @extend %animation-basic;
+  }
+  @keyframes leftIn {
+    0% {
+      //opacity: 0;
+      transform: translate3d($value, 0, 0);
+    }
+    100% {
+      //opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes leftOut {
+    0% {
+      //opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      //opacity: 0;
+      transform: translate3d(-$value, 0, 0);
+    }
+  }
+}
+
+@mixin animation-right($className: transright, $value: 100%) {
+  .#{$className}-enter {
+    animation-name: rightIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: rightOut;
+    @extend %animation-basic;
+  }
+  @keyframes rightIn {
+    0% {
+      //opacity: 0;
+      transform: translate3d($value, 0, 0);
+    }
+    100% {
+      //opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes rightOut {
+    0% {
+      //opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      //opacity: 0;
+      transform: translate3d(-$value, 0, 0);
+    }
+  }
+}
+
+@mixin animation-abovein($className: abovein, $value: .5) {
+  .#{$className}-enter {
+    animation-name: aboveinIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: aboveinOut;
+    @extend %animation-basic;
+  }
+  @keyframes aboveinIn {
+    0% {
+      opacity: 0;
+      transform: scale($value);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes aboveinOut {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+@mixin animation-aboveout($className: aboveout,  $value: .5) {
+  .#{$className}-enter {
+    animation-name: aboveoutIn;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: aboveoutOut;
+    @extend %animation-basic;
+  }
+  @keyframes aboveoutIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes aboveoutOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale($value);
+    }
+  }
+}
+
+@keyframes showIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@mixin animation-downOnly($className: downonly, $value: 100%) {
+  .#{$className}-enter {
+    animation-name: downOnlyIn;
+    @extend %animation-basic;
+
+  }
+  .#{$className}-leave {
+    animation-name: downOnlyOut;
+    @extend %animation-basic;
+  }
+  @keyframes downOnlyIn {
+    0% {
+      transform: translate3d(0, $value, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes downOnlyOut {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, $value, 0);
+    }
+  }
+}
+
+@mixin animation-rotate($className: rotate, $value: 90) {
+  .#{$className}-enter {
+    animation-name: rotateIn;
+    @extend %animation-basic;
+
+  }
+  .#{$className}-leave {
+    animation-name: rotateOut;
+    @extend %animation-basic;
+  }
+  @keyframes rotateIn {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(-$value + deg);
+    }
+  }
+  @keyframes rotateOut {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate($value + deg);
+    }
+  }
+}
+
+
+@include animation-downOnly('down3n', 300%);
+@include animation-rotate('rotate');
+//-----------页面切换类型--------
+.fade-enter {
+  animation: showIn .4s ease;
+}
+.fade-leave {
+  animation: hideOut .4s ease;
+}
+//---transleft-------
+@include animation-left();
+//---transright-------
+@include animation-right();
+//---scale-------
+@include animation-fade('scale');
+//---从上往下-------
+@include animation-up();
+//---从下往上-------
+@include animation-down();
+//-------从上面出来-----------
+@include animation-abovein();
+@include animation-aboveout();
+//-----------页面切换类型--end-------------
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-infinite{
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@mixin animation-scaleOnly($className: action, $to: 1.125) {
+  .#{$className}-hover {
+    animation-name: scaleOnlyhover;
+    @extend %animation-basic;
+  }
+  .#{$className}-leave {
+    animation-name: scaleOnlyleave;
+    @extend %animation-basic;
+  }
+  .#{$className}-down {
+    animation-name: scaleOnlyBig;
+    @extend %animation-basic;
+  }
+  .#{$className}-up {
+    animation-name: scaleOnlyBigBack;
+    @extend %animation-basic;
+  }
+
+  @keyframes scaleOnlyhover {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale($to);
+    }
+  }
+  @keyframes scaleOnlyleave {
+    0% {
+      transform: scale($to);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes scaleOnlyBig {
+    0% {
+      opacity: 1;
+      transform: scale($to);
+    }
+    100% {
+      opacity: .5;
+      transform: scale($to * 1.25);
+    }
+  }
+  @keyframes scaleOnlyBigBack {
+    0% {
+      opacity: .5;
+      transform: scale($to * 1.25);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+// 动画效果：放大  图标的鼠标动画
+@include animation-scaleOnly();
+
+@mixin animation-sway($className: sway, $extent: 10deg ) {
+  .#{$className}-hover {
+    animation-name: #{$className}hover;
+    @extend %animation-basic;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  .#{$className}-leave {
+    animation-name: #{$className}leave;
+    @extend %animation-basic;
+    animation-iteration-count: 0;
+  }
+  .#{$className}-down {
+    animation-name: #{$className}down;
+    @extend %animation-basic;
+  }
+  .#{$className}-up {
+    animation-name: #{$className}up;
+    @extend %animation-basic;
+  }
+
+  @keyframes #{$className}hover {
+    0%, 50%, 100% {
+      transform: rotate(0);
+    }
+
+    25%{
+      transform: rotate($extent);
+    }
+    
+    75% {
+      transform: rotate(-$extent);
+    }
+
+  }
+  @keyframes #{$className}leave {
+    0%, 100% {
+      transform: rotate(0);
+    }
+
+  }
+  @keyframes #{$className}down {
+    0%, 50%, 100% {
+      transform: rotate(0);
+    }
+
+    25%{
+      transform: rotate($extent);
+    }
+    
+    75% {
+      transform: rotate(-$extent);
+    }
+  }
+  @keyframes #{$className}up {
+    0%, 50%, 100% {
+      transform: rotate(0);
+    }
+
+    25%{
+      transform: rotate($extent);
+    }
+    
+    75% {
+      transform: rotate(-$extent);
+    }
+  }
+}
+
+// 动画效果：摇晃  图标的鼠标动画
+@include animation-sway();
+
+@mixin animation-circle($className: circle, $time: 1.5s ) {
+  .#{$className}-hover {
+    animation-name: #{$className}hover;
+    @extend %animation-basic;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: $time;
+  }
+  .#{$className}-leave {
+    animation-name: #{$className}leave;
+    @extend %animation-basic;
+    animation-iteration-count: 0;
+  }
+  .#{$className}-down {
+    animation-name: #{$className}down;
+    @extend %animation-basic;
+    animation-duration: $time / 2;
+  }
+  .#{$className}-up {
+    animation-name: #{$className}up;
+    @extend %animation-basic;
+    animation-duration: $time / 2;
+  }
+
+  @keyframes #{$className}hover {
+    0% {
+      transform: rotate(0);
+    }
+
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes #{$className}leave {
+    0%, 100% {
+      transform: rotate(0);
+    }
+
+  }
+  @keyframes #{$className}down {
+    0% {
+      transform: rotate(0);
+    }
+
+    100%{
+      transform: rotate(-360deg);
+    }
+  }
+  @keyframes #{$className}up {
+    0% {
+      transform: rotate(0);
+    }
+
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// 动画效果：转圈  图标的鼠标动画
+@include animation-circle();
+
+
+@mixin animation-height($className: height, $v: 50%, $h: 0%) {
+  .#{$className}-enter {
+    animation-name: heightIn;
+    @extend %animation-basic;
+    transform-origin: $v $h 0;
+  }
+  .#{$className}-leave {
+    animation-name: heightOut;
+    @extend %animation-basic;
+    transform-origin: $v $h 0;
+  }
+  @keyframes heightIn {
+    0% {
+      transform: scale(0)
+    }
+    100% {
+      transform: scale(1)
+    }
+  }
+  @keyframes heightOut {
+    0% {
+      transform: scale(1)
+    }
+    100% {
+       transform: scale(0)
+    }
+  }
+}
+
+@include animation-height();
+@include animation-height(height-bottom, 0%, 100%); 

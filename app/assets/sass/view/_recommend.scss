@@ -1,0 +1,211 @@
+.view-recommend-add{
+	$rmdw: 180px;
+	$rmdh: 115px;
+	$rmdg: 20px;
+
+	.rmd-layer{
+		position: relative;
+		border: 1px solid $borderColor;
+		@include rem(820px, width);
+		@include rem(290px, height);
+		@include rem(60px, margin-bottom);
+		@include rem($baseGap, margin-top);
+		
+		&.num3{
+			li:nth-child(1) {
+				@include rem($rmdw * 2 + $rmdg, width);
+				@include rem($rmdh * 2 + $rmdg, height);
+			}
+			li:nth-child(2) {
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+				@include rem($rmdw * 2 + $rmdg, width);
+			}
+			li:nth-child(3) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+				@include rem($rmdw * 2 + $rmdg, width);
+			}
+		}
+
+		&.num4{
+			li:nth-child(1) {
+				@include rem($rmdh * 2 + $rmdg, height);	
+			}
+			li:nth-child(2) {
+				@include rem($rmdw + $rmdg * 2, left);
+				@include rem($rmdh * 2 + $rmdg, height);
+			}
+			li:nth-child(3) {
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+				@include rem($rmdw * 2 + $rmdg, width);
+			}
+			li:nth-child(4) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+				@include rem($rmdw * 2 + $rmdg, width);
+			}
+		}
+
+		&.num5{
+			li:nth-child(1) {
+				@include rem($rmdh * 2 + $rmdg, height);	
+			}
+			li:nth-child(2) {
+				@include rem($rmdw + $rmdg * 2, left);
+				@include rem($rmdw * 2 + $rmdg, width);
+			}
+			li:nth-child(3) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw + $rmdg * 2, left);
+				@include rem($rmdw * 2 + $rmdg, width);
+			}
+			li:nth-child(4) {
+				@include rem($rmdw * 3 + $rmdg * 4, left);
+			}
+			li:nth-child(5) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 3 + $rmdg * 4, left);
+			}
+		}
+
+		&.num6{
+			li:nth-child(1) {
+				@include rem($rmdh * 2 + $rmdg, height);	
+			}
+			li:nth-child(2) {
+				@include rem($rmdw + $rmdg * 2, left);
+				@include rem($rmdh * 2 + $rmdg, height);
+			}
+			li:nth-child(3) {
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+			}
+			li:nth-child(4) {
+				@include rem($rmdw * 3 + $rmdg * 4, left);
+			}
+			li:nth-child(5) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+			}
+			li:nth-child(6) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 3 + $rmdg * 4, left);
+			}
+		}
+
+		&.num7{
+			li:nth-child(1) {
+				@include rem($rmdh * 2 + $rmdg, height);	
+			}
+			li:nth-child(2) {
+				@include rem($rmdw + $rmdg * 2, left);
+			}
+			li:nth-child(3) {
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+			}
+			li:nth-child(4) {
+				@include rem($rmdw * 3 + $rmdg * 4, left);
+			}
+			li:nth-child(5) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw + $rmdg * 2, left);
+			}
+			li:nth-child(6) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 2 + $rmdg * 3, left);
+			}
+			li:nth-child(7) {
+				@include rem($rmdh + $rmdg * 2, top);
+				@include rem($rmdw * 3 + $rmdg * 4, left);
+			}
+		}
+
+		li{
+			position: absolute;
+			overflow: hidden;
+			transition: all .5s;
+			@include rem($rmdg, top);
+			@include rem($rmdg, left);
+			@include rem($rmdw, width);
+			@include rem($rmdh, height);
+			background: url('../images/loupan.jpg') center center;
+
+			h6{
+				top: 40%;
+				left: 0;
+				text-align: center;
+				width: 100%;
+				@include rem(-19px, margin-top);
+				position: absolute;
+				text-align: center;
+				@include rem(20px);
+				color: $white;
+				@include rem(36px, line-height);
+
+				> .text {
+					display: inline-block;
+					padding: 0 10px;
+					
+					&.setted{
+						border: 1px solid #000;
+						color: #000;
+					}
+				}
+			}
+
+			.index{
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: $white;
+				@include rem(18px);
+				text-align: center;
+
+				> .num{
+					position: absolute;
+					z-index: 1;
+					@include rem(24px, width);
+					@include rem(24px, height);
+				}
+
+				> .bg{
+					position: absolute;
+					@include rem(-42px, top);
+					@include rem(-10px, left);
+					@include rem(30px, width);
+					@include rem(120px, height);
+					transform: rotate(45deg);
+					background: $warn;
+				}
+			}
+
+			.btn-sec{
+				position: absolute;
+				bottom: 0;
+				left: 0; 
+				right: 0;
+				background: rgba(0, 0, 0, .5);
+				@include rem(35px, line-height);
+
+				.btn{
+					color: $white;
+					@include rem(14px);
+					@include rem(10px, padding-right);
+
+					&:first-child{
+						float: left;
+					}
+
+					&:last-child{
+						float: right;
+					}
+				}
+			}
+		}
+	}
+
+	.setbox-form{
+		.form-group .form-control{
+			@include rem(28 * $baseSize, width);
+		}
+	}
+}

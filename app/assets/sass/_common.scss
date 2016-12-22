@@ -1,0 +1,951 @@
+/*
+* 公用的样式/组件
+*   c_开头为公用样式名， cp-开头为组件样式
+*/
+
+@import "variables";
+@import "media-queries";
+@import "mixin";
+@import "function";
+@import "animation";
+@import "reset";
+@import "icons";
+.c-pointer {
+    cursor: pointer;
+}
+
+//----------行高----
+.c-lineH1 {
+    line-height: 1 !important;
+}
+
+.c-lineH1h {
+    line-height: 1.5 !important;
+}
+
+.c-lineH2 {
+    line-height: 2 !important;
+}
+
+.c-lineH2h {
+    line-height: 2.5 !important;
+}
+
+//--------color---
+.c-color-white {
+    color: $white !important;
+}
+
+.c-color-black {
+    color: $black !important;
+}
+
+.c-color-grayDark {
+    color: $grayDark !important;
+}
+
+.c-color-gray {
+    color: $gray !important;
+}
+
+.c-color-graylight {
+    color: $grayLight !important;
+}
+
+.c-color-primary {
+    color: $primary !important;
+}
+
+.c-color-info {
+    color: $info !important;
+}
+
+.c-color-warn {
+    color: $warn !important;
+}
+
+//------定位----
+.c-pos-rel {
+    position: relative;
+}
+
+.c-pos-abs {
+    position: absolute;
+}
+
+.c-text-left {
+    text-align: left !important;
+}
+
+.c-text-right {
+    text-align: right !important;
+    ;
+}
+
+.c-text-center {
+    text-align: center !important;
+    ;
+}
+
+.c-text-justify {
+    text-align: justify !important;
+}
+
+.c-text-ellipsis {
+    @extend %ellipsis;
+}
+
+.c-text-indent {
+    text-indent: 2em;
+}
+
+.c-v-mid {
+    vertical-align: middle;
+}
+
+.c-f-l {
+    float: left;
+}
+
+.c-f-r {
+    float: right;
+}
+
+.text-highlight {
+    color: $warn;
+}
+
+.c-font-x {
+    @include rem($fontX);
+}
+
+.c-font-s {
+    @include rem($fontS);
+}
+
+.c-font-m {
+    @include rem($fontM);
+}
+
+.c-font-l {
+    @include rem($fontL);
+}
+
+.c-p-t {
+    @include rem($baseGap, padding-top);
+}
+
+.c-p-b {
+    @include rem($baseGap, padding-bottom);
+}
+
+.c-p-l {
+    @include rem($baseGap, padding-left);
+}
+
+.c-p-r {
+    @include rem($baseGap, padding-right);
+}
+
+.c-m-t {
+    @include rem($baseGap, margin-top);
+}
+
+.c-m-b {
+    @include rem($baseGap, margin-bottom);
+}
+
+.c-m-l {
+    @include rem($baseGap, margin-left);
+}
+
+.c-m-r {
+    @include rem($baseGap, margin-right);
+}
+
+.c-hide {
+    display: none !important;
+}
+
+.c-bg {
+    background: $bgColor;
+}
+
+.c-width100 {
+    width: 100%;
+}
+
+//-------按钮----
+.c-btn {
+    display: inline-block;
+    padding: 0 12px;
+    text-align: center;
+    border: 1px solid $borderColor;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    @include rem(90px, min-width);
+    @include rem($radiusBase, border-radius);
+    @include rem(36px, height);
+    @include rem(16px);
+    @include rem(36px, line-height);
+    transition: all .2s;
+    &:hover {
+        opacity: .8;
+    }
+    &:active {
+        opacity: 1;
+    }
+}
+
+.c-btn-block {
+    display: block;
+    width: 100%;
+}
+
+// .c-btn-x {
+//   height: px2rem(36px);
+//   line-height: px2rem(36px);
+//   font-size: px2rem($fontX);
+// }
+.c-btn-s {
+    @include rem(42px, height);
+    @include rem(40px, line-height);
+    @include rem($fontL);
+}
+
+.c-btn-m {
+    @include rem(48px, height);
+    @include rem(46px, line-height);
+    @include rem(20px);
+}
+
+// .c-btn-l {
+//   height: px2rem(88px);
+//   line-height: px2rem(88px);
+//   font-size: px2rem($fontL);
+// }
+.c-btn-gray {
+    color: $gray;
+    background-color: #f0eeee;
+    border-color: #d6d6d6;
+}
+
+.c-btn-info {
+    color: $white;
+    background-color: $info;
+    border-color: $info;
+}
+
+.c-btn-warn {
+    color: $white;
+    background-color: $warn;
+    border-color: $warn;
+}
+
+//-----公共input的样式---
+.c-inp {
+    width: 100%;
+    background-color: $bgColor2;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    @include rem(38px, height);
+    padding: 4px 10px;
+}
+
+.c-inp-no {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.c-inp-ex {
+    width: 5em;
+}
+
+.cp-input-group {
+    position: relative;
+    display: table;
+    @include rem(36px, line-height);
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    &.disabled {
+        .inp {
+            color: $primaryLight;
+        }
+        .c-icon-triangle {
+            border-top-color: $grayLight;
+        }
+    }
+    .inp {
+        width: 99%;
+        display: table-cell;
+        @include rem(38px, height);
+        @include rem(100px, min-width);
+        vertical-align: middle;
+        color: $gray;
+        padding: 0 10px;
+        white-space: nowrap;
+        background: transparent;
+        border: 1px solid transparent;
+        &.active {
+            color: $textColor;
+        }
+    }
+    .input-group-span {
+        display: table-cell;
+        @include rem(40px, min-width);
+        border-left: 1px solid $borderColor;
+        background: #f5f5f5;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0 4px 4px 0;
+    }
+    .list {
+        position: absolute;
+        z-index: $zIndexSelectDrop;
+        left: 0;
+        right: 0;
+        @include rem(38px, top);
+        background: $bgColor2;
+        border: 1px solid $borderColor;
+        white-space: nowrap;
+        max-height: 15em;
+        overflow: auto;
+        > li {
+            padding: 0 10px;
+            @include rem(30px, line-height);
+            cursor: pointer;
+            &:hover {
+                background: $bgColor;
+            }
+        }
+    }
+}
+
+//----文本段落----
+.c-p {
+    text-indent: -2em;
+    padding-left: 2em;
+}
+
+//-----加成内容-----
+.c-strong {
+    font-weight: bold;
+}
+
+//===================================布局=======start==================================
+//------display table---
+.c-table {
+    display: table;
+    width: 100%;
+}
+
+//------display table cell---
+.c-table-cell {
+    display: table-cell;
+}
+
+.c-inline-block {
+    display: inline-block;
+}
+
+//-------flex水平垂直居中-----
+.c-flex-center {
+    @include center-flex();
+}
+
+//-----flex等分横排---
+.c-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    > .item {
+        flex: 1;
+        @extend %ellipsis;
+    }
+}
+
+.c-flex-item {
+    flex: 1;
+    text-align: center;
+}
+
+.processing {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    table {
+        width: 100%;
+        height: 100%;
+        td {
+            text-align: center;
+        }
+    }
+}
+
+//---------table等分列-----
+.c-equal-table {
+    @include equal-table('item');
+}
+
+//-------float布局--------
+.c-float {
+    @extend %clearfix;
+    > .item {
+        float: left;
+    }
+}
+
+//------右侧的块---
+.c-right-block {
+    float: right;
+    padding-right: px2rem($baseGap);
+    padding-left: px2rem(14px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+//-----带右侧tip的标题-----
+.c-title-hastip {
+    display: flex;
+    .c-con {
+        flex: 1;
+        @extend %ellipsis;
+    }
+    .c-tip {
+        float: right;
+    }
+}
+
+//---两列中自适应列的内容, 里面的内容不支持不换行---
+.c-cell-con {
+    display: table-cell;
+    width: 2000px;
+}
+
+//---绝对定位右侧---
+.c-pos-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: px2rem($baseGap);
+    padding-left: px2rem($baseGap / 2);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+//===================================布局=======end==================================
+//-------------灰色背景的标题-----
+.c-gray-title {
+    line-height: px2rem(80px);
+    @extend .c-font-l;
+    color: #000;
+    padding: 0 px2rem(30px);
+}
+
+//上下箭头切换
+.c-icon-updown {
+    margin: 0 px2rem(14px);
+    display: inline-block;
+    vertical-align: middle;
+    width: px2rem(21px);
+    height: px2rem(21px);
+    border-bottom: px2rem(4px) solid $grayLight;
+    border-right: px2rem(4px) solid $grayLight;
+    transition: all .4s;
+    transform: translateY(px2rem(-7px)) rotate(45deg);
+    &.primary {
+        border-color: $primary;
+    }
+    &.warn {
+        border-color: $warn;
+    }
+    &.white {
+        border-color: $white;
+    }
+    &.white-sm {
+        width: px2rem(18px);
+        height: px2rem(18px);
+        border-color: $white;
+    }
+    &.open {
+        transform: rotate(-135deg);
+    }
+}
+
+.c-icon-no-data {
+    width: px2rem(136px);
+    height: px2rem(207px);
+}
+
+//--------border-------
+%c-border {
+    @include borderV();
+    @include borderH();
+    border-width: 1px;
+}
+
+.c-border {
+    @extend %c-border;
+}
+
+%c-border-l {
+    @include borderH();
+    border-width: 0 0 0 1px;
+}
+
+.c-border-l {
+    @extend %c-border-l;
+}
+
+%c-border-b {
+    @include borderV();
+    border-width: 0 0 1px 0;
+}
+
+.c-border-b {
+    @extend %c-border-b;
+}
+
+%c-border-r {
+    @include borderH();
+    border-width: 0 1px 0 0;
+}
+
+.c-border-r {
+    @extend %c-border-r;
+}
+
+%c-border-t {
+    @include borderV();
+    border-width: 1px 0 0 0;
+}
+
+.c-border-t {
+    @extend %c-border-t;
+}
+
+%c-no-border-b {
+    border-bottom: none !important;
+}
+
+.c-no-border-b {
+    border-bottom: none !important;
+}
+
+%c-no-border-t {
+    border-top: none !important;
+}
+
+.c-no-border-t {
+    border-top: none !important;
+}
+
+//----图标旁边的文字----
+.c-icon-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+//----弹出框----
+.cp-confirm-box {
+    position: absolute;
+    position: fixed;
+    z-index: $zIndexConfirm;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.cp-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.scale-enter .cp-cover,
+.scale-leave .cp-cover {
+    transform: scale(1.25);
+}
+
+.cp-confirm-flex {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cp-confirm-con {
+    border-radius: 6px;
+    background: $bgColor2;
+    color: #030303;
+    .common-tips {
+        text-align: center;
+        @include rem(18px);
+        @include rem(20px, padding-top);
+    }
+}
+
+.cp-confirm-body {
+    @include rem(350px, min-width);
+    @include rem(130px, min-height);
+    @include rem(20px, padding);
+    text-align: center;
+}
+
+.cp-confirm-btn {
+    text-align: right;
+    border-top: 1px solid $borderColor;
+    @include rem(12px, padding);
+    .c-btn {
+        @include rem(10px, margin-left);
+    }
+}
+
+.cp-confirm-title {
+    position: relative;
+    color: $white;
+    background: $primary;
+    @include rem(58px, line-height);
+    @include rem(20px, padding-left);
+    @extend .c-font-l;
+    border-radius: 6px 6px 0 0;
+    .c-icon-close-white {
+        position: absolute;
+        @include rem(14px, top);
+        @include rem(14px, right);
+    }
+}
+
+.cp-alertMsg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(0, 0, 0, .8);
+    color: #ffffff;
+    z-index: 9999998;
+    width: px2rem(400px);
+    margin-left: px2rem(-200px);
+    line-height: px2rem(40px);
+    padding: px2rem(10px) px2rem(10px) px2rem(10px) px2rem(10px);
+    border-radius: 4px;
+    text-align: center;
+}
+
+//-------标签导航---
+.cp-tab-nav {
+    @extend %flex-row;
+    line-height: px2rem(60px);
+    color: #b5b8bc;
+    background: $white;
+    border: 1px solid #e6e6e6;
+    border-radius: px2rem($radiusBase);
+    .item {
+        @extend %flex-item;
+        @extend %c-border-r;
+        &.cur {
+            background: #cdcecd;
+            color: $white;
+        }
+        &:last-child:after {
+            border-right: none;
+        }
+    }
+}
+
+//---提示框-----------
+.cp-toast {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: $zIndexToast;
+    left: 0;
+    top: 0;
+    table {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        .msg {
+            display: inline-block;
+            min-width: px2rem(360px);
+            max-width: px2rem(700px);
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, .8);
+            color: $white;
+            border-radius: 4px;
+        }
+    }
+}
+
+//---圈圈----
+.c-icon-circle {
+    display: inline-block;
+    margin: px2rem(-14px) auto;
+    text-align: center;
+    vertical-align: middle;
+    width: px2rem(28px * 4);
+    height: px2rem(28px * 4);
+    line-height: px2rem(28px * 4);
+    border-radius: 100%;
+    border: px2rem(6px) solid $gray;
+    transform: scale(.8);
+    &.green {
+        color: $info;
+        border: px2rem(6px) solid $info;
+    }
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.c-arrow-right {
+    @include arrow(px2rem(26px), right, px2rem(4px), $borderColor: $grayLight);
+}
+
+.c-arrow-right-primary {
+    @include arrow(px2rem(26px), right, px2rem(4px), $borderColor: $primary);
+}
+
+//-----配合vue的v-cloak-----
+[v-cloak] {
+    display: none;
+}
+
+//--------两头圆的导航tab-------
+.cp-radius-nav {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: px2rem(31px);
+    line-height: px2rem(62px);
+    overflow: hidden;
+    font-size: px2rem(36px);
+    > .item {
+        flex: 1;
+        min-width: px2rem(200px);
+        &.cur {
+            background: #fff;
+            color: $primary;
+        }
+    }
+}
+
+//--------表单-----
+.cp-form {
+    @include rem($baseGap, margin-top);
+    @include rem($baseGap, padding-bottom);
+    .form-group {
+        @extend %clearfix;
+        @include rem($baseGap, margin-bottom);
+        font-size: 14px;
+        .control-label {
+            float: left;
+            padding-right: 10px;
+            @include rem(36px, line-height);
+            @include rem(160px, min-width);
+            text-align: right;
+            color: #2d3136;
+        }
+        .form-control {
+            float: left;
+            @include rem(330px, min-width);
+            width: 1%;
+            text-align: left;
+            .cp-input-group {
+                width: 100%;
+            }
+            .cp-text-group {
+                @include rem(36px, line-height);
+            }
+        }
+    }
+    .line {
+        border-bottom: 1px dashed $borderColor;
+        margin-right: 10%;
+        @include rem($baseGap, margin-left);
+        @include rem($baseGap, margin-bottom);
+    }
+}
+
+.cp-form-text {
+    @include rem(26px, line-height);
+    @include radius(2px);
+    @include rem(330px, min-width);
+    padding: 4px;
+    border: #d9d7d7 solid 1px;
+    &::-webkit-input-placeholder {
+        color: #a5a4a4;
+    }
+}
+
+.cp-editor-text {
+    @include radius(2px);
+    border: 0;
+    padding: 0;
+    @include rem(630px, min-width);
+}
+
+.cp-radio {
+    display: inline-block;
+    > .radio-item {
+        display: inline-block;
+        margin-left: px2rem($baseGap);
+        color: #8a8a8a;
+    }
+}
+
+.cp-radio-box {
+    display: inline-block;
+    .radio-icon {
+        display: inline-block;
+        @include rem(26px, line-height);
+        width: 20px;
+        height: 20px;
+        border: #ffa500 solid 1px;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ffa500;
+        }
+    }
+    @include radius(10px);
+}
+
+//----表格顶部工具-----
+.cp-table-tools {
+    position: relative;
+    @include rem(58px, height);
+    @include rem(56px, line-height);
+    h4 {
+        font-size: 16px;
+    }
+    overflow: hidden;
+    .btns-sec {
+        position: absolute;
+        width: 100%;
+        .close-btn {
+            position: absolute;
+            right: 0;
+            @include rem(28px / 2, top);
+        }
+        .btn {
+            float: left;
+            color: $black;
+            @include rem(18px);
+            font-size: 16px;
+            cursor: pointer;
+            &:after {
+                display: inline-block;
+                margin: 0 25px;
+                content: '';
+                height: 28px;
+                width: 2px;
+                vertical-align: middle;
+                background: $borderColor;
+            }
+            &:last-child:after {
+                display: none;
+            }
+            .c-icon30 {
+                margin-right: 4px;
+            }
+        }
+    }
+    .title {
+        @include rem(58px, height);
+        @include rem(56px, line-height);
+        > h4 {
+            float: left;
+            @include rem(56px, line-height);
+            color: $grayDark;
+        }
+        .c-btn {
+            margin-left: 10px;
+        }
+    }
+}
+
+//-------表格-----
+.cp-table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid $borderColor;
+    font-family: $fontYahei;
+    @include rem(46px, line-height);
+    @include rem(14px);
+    > thead {
+        > tr {
+            background: $grayLight;
+            color: $textDark;
+            > th {
+                border: 1px solid $borderColor;
+                font-size: 14px;
+            }
+        }
+    }
+    > tbody {
+        > tr {
+            @include rem(15px);
+            &:nth-child(even) {
+                background: $grayLighter;
+            }
+            &:hover {
+                background: $grayLighter;
+            }
+            > td {
+                border: 1px solid $borderColor;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+//--------标签列表-----------
+.cp-tag-list {
+    @include clearfix();
+    > li {
+        float: left;
+        border: 1px solid $borderColor;
+        border-radius: 3px;
+        padding: 0 6px;
+        @include rem(32px, line-height);
+        @include rem(10px, margin-right);
+        @include rem(10px, margin-bottom);
+        color: $gray;
+        .c-icon-close {
+            vertical-align: middle;
+        }
+    }
+}

@@ -1,0 +1,309 @@
+@import "common";
+@import "components";
+//====登录=-=
+@import "view/login";
+//==========运营参数设置====
+@import "view/params";
+//==========推荐楼盘设置====
+@import "view/recommend";
+//==========房产文章分类设置====
+@import "view/articletype";
+//==========功能设置====
+@import "view/functions";
+.view-container {
+    @include rem($sideWidth, margin-left);
+    @include rem($topHeight, margin-top);
+    @include rem($baseGap, padding);
+}
+
+.view {
+    background: $bgColor2;
+    .view-title {
+        border: 1px solid $bgColor2;
+        @include rem(58px, height);
+        @include rem($baseGap, padding-left);
+        @include rem($baseGap, padding-right);
+        @include rem(56px, line-height);
+        background: $grayLighter;
+        > h3 {
+            float: left;
+            @include rem(56px, line-height);
+            @include rem(18px);
+            font-size: 16px;
+            color: $grayDark;
+        }
+    }
+}
+
+.view-side-nav {
+    position: fixed;
+    z-index: $zIndexSide;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    //overflow: auto;
+    padding-bottom: 100px;
+    @include rem($sideWidth, width);
+    background: $primary;
+    font-family: $fontYahei;
+    > h1 {
+        @include rem(66px, height);
+        @include rem(66px, line-height);
+        @include rem(34px, padding-left);
+        color: $white;
+        background: $primaryDark;
+        border-bottom: 2px solid #0f283a;
+        > i {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 100%;
+            border: 1px solid $white;
+            @include rem(20px, margin-left);
+            @include rem(30px, width);
+            @include rem(30px, height);
+            @include rem(30px, line-height);
+            text-align: center;
+            font-family: Simsun;
+            font-weight: bold;
+            @include rem(14px);
+            color: $white;
+            opacity: .5;
+            //cursor: pointer;
+        }
+    }
+    .side-nav {
+        @include rem(48px, line-height);
+        color: #707981;
+        >ul {
+            >li {
+                @include rem(30px, padding-left);
+                cursor: pointer;
+                position: relative;
+                font-size: 16px;
+                &:hover {
+                    background: rgba(255, 255, 255, .1);
+                    ul {
+                        display: block;
+                    }
+                }
+                &.active {
+                    background: $info;
+                    color: $white;
+                    .c-icon-nav-to {
+                        opacity: 1;
+                    }
+                }
+                .c-icon30 {
+                    @include rem(10px, margin-right);
+                }
+                .c-icon-nav-to {
+                    top: 11px;
+                    right: 20px;
+                    opacity: 0.3;
+                }
+                ul {
+                    position: absolute;
+                    display: none;
+                    background: #2d4352;
+                    width: 170px;
+                    top: -50px;
+                    left: 100%;
+                    padding: 0;
+                    li {
+                        line-height: 48px;
+                        padding-left: 10px;
+                        color: #707981;
+                        &.active {
+                            color: $white;
+                        }
+                        &:hover {
+                            background: rgba(255, 255, 255, .1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .user-msg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        @include rem(30px, padding-left);
+        background: inherit;
+        .headimg {
+            float: left;
+            margin-right: 10px;
+            @include rem(54px, width);
+            @include rem(54px, height);
+            border-radius: 100%;
+            background: url("../images/default-head.png");
+            background-size: 100%;
+        }
+        .name {
+            @include rem(18px);
+            font-size: 16px;
+            @include rem(4px,
+            padding-top);
+            color: #bfc7d1;
+        }
+        .workno {
+            color: $textGray;
+            @include rem(14px);
+            font-family: arial;
+        }
+        .icons {
+            padding: 15px 0;
+            .c-icon30 {
+                @include rem(30px,
+                margin-right);
+            }
+        }
+    }
+    .setting-list {
+        position: absolute;
+        background: #2d4352;
+        border-radius: 3px;
+        color: #707981;
+        @include rem(50px,
+        bottom);
+        @include rem(44px,
+        line-height);
+        padding: 10px 0;
+        > li {
+            @include rem(10px,
+            padding-left);
+            @include rem(20px,
+            padding-right);
+            cursor: pointer;
+            &.hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.view-top-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: $zIndexTop;
+    @include rem($sideWidth,
+    margin-left);
+    @include rem(24px,
+    padding-left);
+    @include rem($topHeight,
+    height);
+    @include rem($topHeight,
+    line-height);
+    border-bottom: 2px solid #e3e6e7;
+    background: $bgColor2;
+    font-family: $fontYahei;
+    > h2 {
+        float: left;
+        @include rem(18px);
+        @include rem($topHeight,
+        line-height);
+        color: #434a50;
+        font-family: '微软雅黑';
+    }
+    > .right-sec {
+        float: right;
+        @include rem(30px,
+        padding-right);
+        > li {
+            float: left;
+            @include rem(15px,
+            margin-left);
+            > .search {
+                @include rem( ($topHeight - 34px) / 2,
+                margin-top);
+                @include rem(34px,
+                height);
+                @include rem(34px,
+                line-height);
+                background: #e6eaef;
+                @include rem(17px,
+                border-radius);
+                @include rem(18px,
+                padding-left);
+                @include rem(8px,
+                padding-right);
+                input {
+                    @include rem(14px);
+                    @include rem(210px,
+                    width);
+                    color: $primaryLight;
+                    height: 80%;
+                    vertical-align: middle;
+                    border: none;
+                    background: transparent;
+                    font-family: $fontYahei;
+                }
+            }
+        }
+    }
+}
+
+.cp-not-support {
+    position: absolute;
+    z-index: 1111;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fdfdba;
+    line-height: 50px;
+    text-align: center;
+}
+
+@keyframes processing {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cp-processing {
+    position: absolute;
+    top: 48%;
+    left: 45%;
+    visibility: hidden;
+    &.show {
+        visibility: visible;
+        transition: all 0s linear .5s;
+    }
+    > i {
+        margin: 0 10px;
+        display: inline-block;
+        //vertical-align: baseline;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(0, 0, 0, .45);
+        animation: processing 1.2s ease 0s infinite;
+        &:nth-child(2) {
+            animation-delay: .2s;
+        }
+        &:nth-child(3) {
+            animation-delay: .4s;
+        }
+        &:nth-child(4) {
+            animation-delay: .6s;
+        }
+        &:nth-child(5) {
+            animation-delay: .8s;
+        }
+        &:nth-child(6) {
+            animation-delay: 1s;
+        }
+    }
+}

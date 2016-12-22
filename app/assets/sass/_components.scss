@@ -1,0 +1,425 @@
+.cp-leter-select {
+    @include rem(30px, padding-left);
+    @include rem(30px, padding-right);
+    .letter-list {
+        @include rem(10px, padding-top);
+        @include rem(10px, padding-bottom);
+        @include rem(40px, line-height);
+        li {
+            display: inline-block;
+            @include rem(50px, width);
+            text-align: center;
+            cursor: pointer;
+            transition: all .3s;
+            font-size: 14px;
+            &.all {
+                text-align: left;
+            }
+            &.active {
+                color: $warn;
+                transform: scale(1.5);
+            }
+        }
+    }
+    .result-list {
+        li {
+            position: relative;
+            @include rem(10px, margin-bottom);
+            @include rem(10px, margin-right);
+            @include rem(100px, min-width);
+            float: left;
+            border: 1px solid #dcdada;
+            border-radius: 3px;
+            @include rem(30px, line-height);
+            @include rem(8px, padding-left);
+            @include rem(30px, padding-right);
+            font-size: 14px;
+            color: $gray;
+            .c-icon-close {
+                position: absolute;
+                @include rem(5px, top);
+                @include rem(5px, right);
+            }
+        }
+    }
+}
+
+.cp-pagination {
+    @include rem($baseGap, padding);
+    border: 1px solid $borderColor;
+    border-top: 0;
+    @include clearfix();
+    user-select: none;
+    > ul {
+        float: right;
+        @include clearfix();
+        > li {
+            float: left;
+            margin-left: 10px;
+            border: 1px solid $textGray;
+            color: $textGray;
+            line-height: 28px;
+            padding: 0 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all .2s;
+            &.last,
+            &.next {
+                font-family: simsun;
+                font-weight: bold;
+                @include rem(18px);
+            }
+            &:hover {
+                border-color: $info;
+                box-shadow: 0 0 0 1px $info inset;
+                color: $info;
+            }
+            &.cur {
+                background: $info;
+                color: $white;
+            }
+            &.each {
+                position: relative;
+                > i {
+                    display: inline-block;
+                    margin-left: 6px;
+                    font-family: simsun;
+                    font-weight: bold;
+                    @include rem(18px);
+                    transform: rotate(90deg);
+                    transition: all .3s;
+                    &.open {
+                        transform: rotate(-90deg);
+                    }
+                }
+                > .row-options {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 28px;
+                    background: $white;
+                    border: 1px solid $info;
+                    > li {
+                        padding-left: 10px;
+                        &:hover {
+                            background: $bgColor;
+                        }
+                    }
+                }
+            }
+            &.total {
+                border: none;
+                box-shadow: none;
+                cursor: text;
+                margin-left: 0;
+                @include rem(14px);
+                &:hover {
+                    color: $textGray;
+                    border: 0;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+.cp-checkbox-wrap {
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.cp-checkbox {
+    display: inline-block;
+    margin: 0 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #dddfe2;
+    vertical-align: middle;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all .2s;
+    &.check-half {
+        background: $warn;
+        border: 1px solid $warn;
+    }
+    &.checked {
+        border: 1px solid $warn;
+        background: $warn url("../images/icons/gou.png") center no-repeat;
+    }
+}
+
+.cp-radiobox {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+    &.checked {
+        .cp-radio {
+            border: 1px solid $warn;
+            position: relative;
+            z-index: 1;
+            &:after {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                left: 2px;
+                top: 2px;
+                border-radius: 50%;
+                background: $warn;
+            }
+        }
+    }
+    .cp-radio {
+        display: inline-block;
+        margin: 0 5px;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #dddfe2;
+        vertical-align: middle;
+        border-radius: 50%;
+        transition: all .2s;
+    }
+}
+
+//----图标下拉弹框-----用在表头---
+.cp-icon-drop {
+    position: relative;
+    z-index: 100;
+    vertical-align: middle;
+    display: inline-block;
+    width: 38px;
+    height: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    border-color: #b9b8b8;
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        content: '';
+        width: 17px;
+        height: 17px;
+        border: 1px solid #b9b8b8;
+        border-radius: 100%;
+    }
+    &:after {
+        position: absolute;
+        top: 5px;
+        left: 16px;
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-bottom: 1px solid #b9b8b8;
+        border-right: 1px solid #b9b8b8;
+        transform: rotate(45deg);
+    }
+    &.open {
+        &:before {
+            border-color: $info;
+            background: $info;
+        }
+        &:after {
+            border-color: $white;
+        }
+    }
+    > .list {
+        position: absolute;
+        right: -50px;
+        top: 30px;
+        background: $white;
+        @include rem(130px,
+        min-width);
+        padding: 0 10px;
+        border-radius: 4px;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, .2);
+        white-space: nowrap;
+        @include rem(48px,
+        line-height);
+        color: #737373;
+        animation-duration: .3s !important;
+        &:after {
+            position: absolute;
+            top: -6px;
+            right: 62px;
+            content: '';
+            background: $white;
+            width: 12px;
+            height: 12px;
+            transform: rotate(45deg);
+        }
+        > li {
+            border-bottom: 1px solid #e2e3e6;
+            font-weight: normal;
+            &:hover,
+            &.cur {
+                color: $info;
+            }
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+}
+
+.cp-filter-tag {
+    margin-left: $baseGap;
+    display: inline-block;
+    @include rem(14px);
+    color: $warn;
+    @include rem(20px,
+    line-height);
+    > li {
+        margin-right: 10px;
+        display: inline-block;
+        border: 1px solid $warn;
+        border-radius: 2px;
+        padding: 2px 5px 3px 10px;
+        i {
+            margin-left: 5px;
+        }
+    }
+}
+
+.cp-upload-img {
+    @include clearfix();
+    .upload-btn {
+        float: left;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+        > .img-place {
+            @include rem(150px,
+            width);
+            @include rem(150px,
+            height);
+            @include rem(120px,
+            padding-top);
+            @include rem(14px);
+            color: $gray;
+            border-radius: 4px;
+            text-align: center;
+            background: #f3f3f3 url("../images/upload.png") center no-repeat;
+        }
+        > img {
+            @include rem(500px,
+            max-width);
+            @include rem(300px,
+            max-height);
+        }
+    }
+    .upload-msg {
+        color: #a5a4a4;
+        white-space: nowrap;
+        padding-top: 20px;
+        @include rem(14px);
+        @include rem(170px,
+        margin-left);
+        h6 {
+            color: #464646;
+        }
+    }
+}
+
+.cp-city-select {
+    // @include rem(800px,
+    // max-width);
+    @include rem(600px,
+    min-width);
+    user-select: none;
+    .select-list {
+        @include rem($baseGap,
+        margin-bottom);
+        margin-bottom: 5px;
+        @include clearfix();
+        > li {
+            float: left;
+            border: 1px solid $borderColor;
+            border-radius: 3px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 0 6px;
+            @include rem(100px,
+            min-width);
+            @include rem(30px,
+            line-height);
+            color: $gray;
+            .c-icon-close {
+                float: right;
+                @include rem(5px,
+                margin-top);
+            }
+        }
+    }
+    .city-well {
+        @include clearfix();
+        border: 1px solid $borderColor;
+        @include rem(28px,
+        padding-left);
+        @include rem(28px,
+        padding-right);
+        @include rem(10px,
+        padding-top);
+        @include rem(10px,
+        padding-bottom);
+        @include rem(240px,
+        min-height);
+        @include rem(600px,
+        min-width);
+        background: $white;
+        &.fly {
+            position: absolute;
+            z-index: $zIndexCityWell;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .25);
+        }
+        .all {
+            @include rem(50px,
+            line-height);
+            border-bottom: 1px dashed $borderColor;
+            .cp-checkbox {
+                margin-left: 0px;
+            }
+        }
+        .letter-list {
+            @include rem(10px,
+            padding-top);
+            @include rem(10px,
+            padding-bottom);
+            @include rem(34px,
+            line-height);
+            @include rem(-10px,
+            margin-left);
+            >li {
+                display: inline-block;
+                @include rem(20px,
+                width);
+                @include rem(10px,
+                padding-left);
+                @include rem(20px,
+                margin-right);
+                text-align: left;
+                cursor: pointer;
+                transition: all .3s;
+                font-size: 14px;
+                &.active {
+                    color: $warn;
+                    transform: scale(1.5);
+                }
+            }
+        }
+        .city-list {
+            > li {
+                float: left;
+                @include rem(120px,
+                width);
+                @include rem(10px,
+                margin-bottom);
+                font-size: 14px;
+            }
+        }
+    }
+}

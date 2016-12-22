@@ -1,0 +1,107 @@
+.c-icon30 {
+    display: inline-block;
+    vertical-align: middle;
+    @include rem(30px, width);
+    @include rem(30px, height);
+    background-size: 100% 100%;
+}
+
+$iconNav: 1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10;
+@each $key in $iconNav {
+    .c-icon-nav#{$key} {
+        background-image: url('../images/icons/nav#{$key}.png');
+    }
+    .c-icon-nav#{$key}-active {
+        background-image: url('../images/icons/nav#{$key}-active.png');
+    }
+}
+
+$iconNames: search,
+msg,
+setting,
+setting-white,
+help,
+del-white,
+del,
+edit,
+act,
+close2,
+logout,
+logout-white;
+@each $key in $iconNames {
+    .c-icon-#{$key} {
+        background-image: url('../images/icons/#{$key}.png');
+    }
+}
+
+.c-icon-close {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url('../images/icons/close.png') center center;
+    background-size: 18px 18px;
+    &:hover {
+        opacity: .7;
+    }
+}
+
+.c-icon-close-white {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url('../images/icons/close-white.png') center center no-repeat;
+    &:hover {
+        opacity: .5;
+    }
+}
+
+.c-icon-sort,
+.c-icon-sortasc,
+.c-icon-sortdesc {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    background: url('../images/icons/sort-default.png') center center no-repeat;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.c-icon-sortasc {
+    background: url('../images/icons/sort-asc.png') center center no-repeat;
+}
+
+.c-icon-sortdesc {
+    background: url('../images/icons/sort-desc.png') center center no-repeat;
+}
+
+.c-icon-triangle {
+    display: inline-block;
+    vertical-align: middle;
+    @include triangle(bottom,
+    8px,
+    $gray);
+}
+
+.c-icon-nav-to {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url('../images/icons/navto-icon.png') center center no-repeat;
+    position: absolute;
+}

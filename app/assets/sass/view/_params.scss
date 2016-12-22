@@ -1,0 +1,14 @@
+.view-city-params{
+	.city-select{
+		@include rem(20px, padding-top);
+
+		text-align: left;
+		
+		.input-area{
+			float: left;
+			@include rem(200px, width);
+			margin:0 10px;
+		}
+		
+	}
+}

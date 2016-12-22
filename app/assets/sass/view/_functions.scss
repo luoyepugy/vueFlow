@@ -1,0 +1,229 @@
+
+.view-functions-list{
+
+	.functions-icon{
+		@include rem(40px, width);
+		@include rem(40px, height);
+		vertical-align: middle;
+	}
+}
+
+.view-functions-add{
+		.city-section{
+				float: left;
+				max-width: 80%;
+		}
+}
+
+
+.view-functions-sort{
+	@include rem($baseGap, padding-bottom);
+
+	.btns{
+		@include rem(50px, margin-top);
+		@include rem(100px, margin-left);
+	}
+
+	.con{
+		@include clearfix();
+		@include rem(50px, padding-left);
+		@include rem(50px, padding-top);
+		@include rem(450px, min-height);
+
+		.left{
+			float: left;
+			@include rem(660px, width);
+			@include rem(100px, min-height);
+		}
+
+		.right{
+			float: left;
+			position:relative;
+
+			.gap-line{
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 2px;
+				background: url("../images/gap-line.png") no-repeat;
+				background-size: 100% 100%;
+			}
+		
+			.phone{
+				position: relative;
+				overflow: hidden;
+				@include rem(120px, margin-left);
+				@include rem(260px, width);
+				@include rem(536px, height);
+				@include rem(22px, padding-left);
+				@include rem(22px, padding-right);
+				@include rem(74px, padding-top);
+				background: url("../images/phone.png") no-repeat;
+				background-size: 100%;
+
+				.phone-cover{
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					@include rem(74px, height);
+					background: #fff url("../images/phone.png") 0 bottom no-repeat;
+					background-size: 100%;
+				}	
+
+				.phone-top{
+					@include rem(114px, height);
+					background: url("../images/phone-top.jpg") no-repeat;
+					background-size: 100%;
+				}
+
+				.phone-bottom{
+					@include rem(350px, height);
+					background: url("../images/phone-bottom.jpg") no-repeat;
+					background-size: 100%;
+				}
+
+				.phone-mid{
+					background: $white;
+					@include clearfix();
+					@include rem(10px, padding-top);
+
+					> li{
+						float: left;
+						@include rem(32px, width);
+						@include rem(11px, margin-left);
+						@include rem(11px, margin-right);
+						text-align: center;
+						overflow: hidden;
+						
+						@include rem(20px, line-height);
+						@include rem(10px, margin-bottom);
+
+						> p{
+							@include rem(52px, width);
+							@include rem(-10px, margin-left);
+							white-space: nowrap;
+							@include rem(16px);
+							transform: scale(.5);
+						}
+
+						> img{
+							display: block;
+							border: 0 none;
+							@include rem(32px, width);
+							@include rem(32px, height);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sort-list{
+		position: relative;
+
+		$sItem: 90px;
+		$sGap: 50px;
+
+		> li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include rem($sItem, width);
+			text-align: center;
+			@include rem(18px);
+			@include rem(36px, line-height);
+			cursor: pointer;
+			user-select: none;
+			
+			> .img{
+				display: block;
+				border: 0 none;
+				@include rem($sItem, width);
+				@include rem($sItem, height);
+				background-size: 100% 100%;
+		    background-repeat: no-repeat;
+		    background-position: center;
+			}
+			
+			&.changing{
+				transition: all .4s;
+			}
+
+
+			&:nth-child(1){
+				@include rem(0px, left);
+			}
+
+			&:nth-child(2){
+				@include rem($sItem + $sGap, left);
+			}
+
+			&:nth-child(3){
+				@include rem($sItem * 2 + $sGap * 2, left);
+			}
+
+			&:nth-child(4){
+				@include rem($sItem * 3 + $sGap * 3, left);
+			}
+
+			&:nth-child(5){
+				@include rem($sItem + $sGap, top);
+			}
+
+			&:nth-child(6){
+				@include rem($sItem + $sGap, left);
+				@include rem($sItem + $sGap, top);
+			}
+
+			&:nth-child(7){
+				@include rem($sItem * 2 + $sGap * 2, left);
+				@include rem($sItem + $sGap, top);
+			}
+
+			&:nth-child(8){
+				@include rem($sItem * 3 + $sGap * 3, left);
+				@include rem($sItem + $sGap, top);
+			}
+			
+			&:nth-child(9){
+				@include rem($sItem * 2 + $sGap * 2, top);
+			}
+
+			&:nth-child(10){
+				@include rem($sItem + $sGap, left);
+				@include rem($sItem * 2 + $sGap * 2, top);
+			}
+
+			&:nth-child(11){
+				@include rem($sItem * 2 + $sGap * 2, left);
+				@include rem($sItem * 2 + $sGap * 2, top);
+			}
+
+			&:nth-child(12){
+				@include rem($sItem * 3 + $sGap * 3, left);
+				@include rem($sItem * 2 + $sGap * 2, top);
+			}
+
+			&:nth-child(13){
+				@include rem($sItem * 3 + $sGap * 3, top);
+			}
+
+			&:nth-child(14){
+				@include rem($sItem + $sGap, left);
+				@include rem($sItem * 3 + $sGap * 3, top);
+			}
+
+			&:nth-child(15){
+				@include rem($sItem * 2 + $sGap * 2, left);
+				@include rem($sItem * 3 + $sGap * 3, top);
+			}
+
+			&:nth-child(16){
+				@include rem($sItem * 3 + $sGap * 3, left);
+				@include rem($sItem * 3 + $sGap * 3, top);
+			}
+		}
+	}
+}

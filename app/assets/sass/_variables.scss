@@ -1,0 +1,79 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// setting scss
+//-----------------------------------------------------
+// font相关
+//-----------------------------------------------------
+$baseSize: 16px !default;
+$baseLineHeight: 1.5 !default;
+$baseFont: "Microsoft YaHei", Tahoma, Arial, "Helvetica Neue", "Hiragino Sans GB", Simsun, sans-self;
+$fontYahei: "Microsoft YaHei";
+// 元素上下间距
+//-----------------------------------------------------
+$baseGap: 22px;//
+// header,footer等的高度
+//-----------------------------------------------------
+$sideWidth: 216px;//
+$topHeight: 68px;//
+//----------------------color------------------------
+// 灰色调
+$black: black !default;
+$grayDarker: #363e47 !default;	
+$grayDark: #686c6f !default;	//	
+$gray: #939393 !default;	//
+$grayLight: #e2e8ea !default;	//
+$grayLighter: #f8f9fa !default; //
+$white: white !default;
+// 主色调-
+$primaryDark: #1c2b36 !default; //
+$primary: #243846 !default;//
+$primaryLight: #92a1af !default;//
+	
+//辅色调-绿色
+$info: #4dbd74 !default;//
+//反色调-黄色
+$warn: #ffa500 !default;//
+
+// link
+$linkColor: #57a5f2 !default;
+// scaffolding
+//-----------------------------------------------------
+$bgColor: #edf1f2 !default;	//
+$bgColor2: #ffffff !default;
+
+$textColor: #2d3136 !default;	//
+$textGray: #92a1af; //
+$textDark: #51565b;	//
+
+$borderColor: #d9d7d7 !default;	//
+// placeholder
+//-----------------------------------------------------
+// 变量分别为：是否输出表单的占位符placeholder样式，文本色
+$placeholder: true $gray !default;
+// radius
+//-----------------------------------------------------
+$radiusBase: 4px !default;
+// z-index
+//-----------------------------------------------------
+$zIndexAllCover: 10000 !default;
+$zIndexShortcut: 600 !default;
+$zIndexShortcutBtn: 599 !default;
+$zIndexCityWell: 100;	//
+$zIndexTop: 400 !default;	//
+$zIndexSide: 400 !default;//
+$zIndexProcessing: 10000 !default; //
+$zIndexSelectDrop: 400 !default;
+$zIndexContent: 500 !default;
+$zIndexOverlay: 980 !default; 
+$zIndexConfirm: 1000 !default; 
+$zIndexToast: 1000 !default; 
+$zIndexSure: 980 !default;
+//-----------------------------------------------------
+$fontX: 12px !default;
+$fontS: 14px !default;
+$fontM: 16px !default;
+$fontL: 18px !default;
+
+
+$one-line-v: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAEAQMAAAB1Fsd5AAAABlBMVEUAAADZ2dmIyqNWAAAAAXRSTlMAQObYZgAAAA1JREFUCNdjaGAAgQYABAgBAXDgsY4AAAAASUVORK5CYII=) 2 0 stretch;
+$one-line-h: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABAQMAAADD8p2OAAAABlBMVEUAAADZ2dmIyqNWAAAAAXRSTlMAQObYZgAAAApJREFUCNdjmAAAAJIAkbis4zkAAAAASUVORK5CYII=) 0 2 stretch;
