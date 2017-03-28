@@ -1,52 +1,50 @@
-var vue = require('vue-loader');
+
 var webpack = require('webpack');
+var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-//独立样式文件
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+module.exports = {
+	devtool: 'cheap-module-eval-source-map',
+	entry: {
+		bundle: './src/modules/app.js'
+	},
+	output: {
+		path: path.resolve(__dirname, 'dist'),	// 在webpack命令中，生成实际文件
+		publicPath: '/dist/',					// 输出基本目录，文件路径默认加上/dist/前缀,在webpack-dev-server命令行中，但是不生成实际文件
+		filename: '[name].js'
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.vue$/,
+				loaders: 'vue-loader',
+				exclude: /mode_modules/
+			},
+			{
+				test: /\.scss$/,
+				loaders: ExtractTextPlugin.extract({fallback: 'style-loader', use:['css-loader', 'sass-loader']})
+			},
+			{
+				test: /\.js$/,
+				loaders: 'babel-loader',
+				exclude: /node_modules/,
+				query: {
+					presets: ['es2015'],
+					plugins: ['transform-runtime']
+				}
+			}
+		]
+	},
+	devServer:{
+	    historyApiFallback:true,
+	    hot:false,
+	    inline:true,
+	    progress:true,
+	    port:8009 //端口你可以自定义
+	},
+	plugins:[
+		new ExtractTextPlugin('app.css'),
+	    new webpack.HotModuleReplacementPlugin()
+	]
 
-
-module.exports = function(config) {
-  var moduleExports = {
-    entry: config.entry,
-    output: config.output,
-    module: {
-      loaders: [{
-        test: /\.vue$/,
-        loader: 'vue'
-      }, {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css!sass")
-      }, {
-        test: /\.js$/,
-        // excluding some local linked packages.
-        // for normal use cases only node_modules is needed.
-        exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\//,
-        loader: 'babel'
-      }]
-    },
-    vue: {
-      loaders: {
-        sass: ExtractTextPlugin.extract("css!sass")
-      }
-    },
-    babel: {
-      presets: ['es2015'],
-      plugins: ['transform-runtime']
-    }
-  };
-
-  moduleExports.devtool = '#source-map';
-  moduleExports.plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: "'" + config.env + "'"
-      }
-    }),
-    new ExtractTextPlugin("../style/webpack.css", {
-      disable: false,
-      allChunks: true //所有独立样式打包成一个css文件
-    })
-  ]
-
-  return moduleExports
-};
+}
