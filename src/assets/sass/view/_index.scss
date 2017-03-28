@@ -1,7 +1,12 @@
 
 .hello {
-	background: rgb(0%, 50%, 0%);
+	background: rgb(100%, 50%, 50%);
 	color: $red;
+}
+.test {
+	background: url(../images/logo.png) no-repeat;
+	width: 120px;
+	height: 150px;
 }
 
 span {

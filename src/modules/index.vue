@@ -2,8 +2,9 @@
     <div>
         hello!{{name}}
         <list :datas="datas"></list>
-        <a v-link="{path: '/tab'}">tab页面</a>
+        <a v-link="{path: '/tab'}">tab页面22e</a>
         <p class="hello">dsf ewaff ddsf <span>i am a span element</span><b>efwefw</b></p>
+        <div class="test">dfl;aeofw</div>
     </div>
 </template>
 

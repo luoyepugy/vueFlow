@@ -8,8 +8,6 @@ import component from '../components'
 import filters from '../filters'
 import directives from '../directives'
 
-import '../assets/sass/app.scss';
-
 Vue.config.debug = true;
 Vue.use(vueRouter);
 
