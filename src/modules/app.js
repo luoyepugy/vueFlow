@@ -3,12 +3,20 @@ import Vue from 'vue'
 import vueRouter from 'vue-router'
 
 import routerConfig from '../config/routes'
+import validator from '../config/validator'
 
 import component from '../components'
 import filters from '../filters'
 import directives from '../directives'
 
-Vue.config.debug = true;
+//======================global config=====================
+Vue.config.debug = true
+
+Vue.mixin({
+
+})
+
+
 Vue.use(vueRouter);
 
 const router = new vueRouter({

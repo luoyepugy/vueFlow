@@ -1,0 +1,38 @@
+
+/* 必需 */
+.expand-transition {
+  transition: all .3s ease;
+  height: 30px;
+  padding: 10px;
+  background-color: #eee;
+  overflow: hidden;
+}
+/* .expand-enter 定义进入的开始状态 */
+/* .expand-leave 定义离开的结束状态 */
+.expand-enter, .expand-leave {
+  height: 0;
+  padding: 0 10px;
+  opacity: 0;
+}
+
+@keyframes fat { 
+ 0% { 
+	width: 100px 
+  } 
+  50% { 
+	width: 200px 
+  } 
+  100% { 
+	width: 100px 
+  } 
+} 
+.bounce-transition {
+	background-color: orange;
+}
+.fat-transition {
+	border: 1px solid black;
+	width: 100px;
+}
+.fat-leave, .fat-enter { 
+  animation: fat 1s both; 
+} 

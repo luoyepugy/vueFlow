@@ -55,6 +55,7 @@ gulp.task("webpack", function(callback) {
 gulp.task('webpackReload', ['webpack'], function() {
   return gulp.src('dist/modules/')
     .on('error', handleError)
+    .pipe($.jshint('.jshintrc'))
     .pipe(gulp.dest('dist/modules'))
     .pipe($.livereload());
 });
@@ -114,7 +115,7 @@ gulp.task('watch', function() {
 
 gulp.task('s', ['index', 'lib', 'css', 'webpackReload', 'watch'], function() {
   var app = connect()
-    .use(cLivereload({ port: 35729 }))
+    .use(cLivereload({ port: 35729 })) 
     .use(serveStatic('dist/', {
       index: 'index.html'
     }));
