@@ -3,6 +3,10 @@
 	background: rgb(0%, 50%, 50%);
 	color: $red;
 }
+.active {
+	color: yellow;
+	background: black;
+}
 .test {
 	background: url(../images/logo.png) no-repeat;
 	width: 120px;

@@ -1,8 +1,8 @@
 
-const home = resolve => require(['../modules/index.vue'], resolve);
-const detail = resolve => require(['../modules/detail.vue'], resolve);
+const home = resolve => require(['../modules/index/index.vue'], resolve);
+const detail = resolve => require(['../modules/index/detail.vue'], resolve);
 
-const tab = resolve => require(['../modules/tab.vue'], resolve);
+const tab = resolve => require(['../modules/index/tab.vue'], resolve);
 const tabHome = resolve => require(['../components/tab-home.vue'], resolve);
 const tabContact = resolve => require(['../components/tab-contact.vue'], resolve);
 
@@ -13,7 +13,8 @@ export default {
 	},
 	'/detail/:id': {
 		name: 'detail',
-		component: detail
+		component: detail,
+		auth: false
 	},
 	'/tab': {
 		name: 'tab',

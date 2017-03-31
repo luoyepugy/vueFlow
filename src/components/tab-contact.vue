@@ -1,7 +1,8 @@
 
 <template>
 	<div>
-		tab-contact content
+		<div>tab-contact content</div>
+		<router-link :to="{path: '/home'}">测试router-link to home</router-link>
 	</div>
 </template>
 

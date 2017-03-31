@@ -22,10 +22,10 @@ module.exports = function(config){
 					test: /\.js$/,
 					loaders: 'babel-loader',
 					exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\//,
-					query: {
-						presets: ['es2015'],
-						plugins: ['transform-runtime']
-					}
+					// query: {
+					// 	presets: ['es2015'],
+					// 	plugins: ['transform-runtime']
+					// }
 				},
 				{
 					test: /\.(png|jpg)$/,
@@ -33,6 +33,15 @@ module.exports = function(config){
 				}
 			]
 		}
+	    // vue: {
+	    //   loaders: {
+	    //     sass: ExtractTextPlugin.extract("css!sass")
+	    //   }
+	    // },
+	    // babel: {
+	    //   presets: ['es2015'],
+	    //   plugins: ['transform-runtime']
+	    // }
 		// devServer:{
 		//     historyApiFallback:true,
 		//     hot:false,
@@ -47,7 +56,17 @@ module.exports = function(config){
 	};
 
 	moduleExports.plugins = [
-	    // new webpack.HotModuleReplacementPlugin()
+	  new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"' + config.env + '"'
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      }),
+      // new webpack.optimize.OccurenceOrderPlugin()
 	];
 
 	return moduleExports;

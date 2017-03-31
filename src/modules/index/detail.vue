@@ -114,7 +114,7 @@
 			console.log('created..');
 			this.res.id = this.$route.params.id;
 			this.res.test = 'wef';
-			
+
 			console.log(this.res.test);
 		},
 		beforeCompile() {

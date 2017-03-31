@@ -5,7 +5,14 @@ var gulp = require('gulp'),
     serveStatic = require('serve-static')
     http = require('http')
     connect = require('connect'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    argv = require('yargs').default('env', 'local').argv;
+
+// API
+var apis = {
+  local: 'http://172.18.84.26/',
+  baidu: 'http://www.baidu.com/'
+}
 
 // 样式
 gulp.task('css', ['images'], function () {
@@ -28,7 +35,7 @@ gulp.task('css', ['images'], function () {
 
 
 var config = {
-  // env: argv.env,
+  env: argv.env,
   //webpack.config
   entry: './src/modules/' + 'app.js',
   output: {
@@ -53,7 +60,8 @@ gulp.task("webpack", function(callback) {
 });
 
 gulp.task('webpackReload', ['webpack'], function() {
-  return gulp.src('dist/modules/')
+  return gulp.src('dist/modules/*.js')
+    .pipe($.replace(/_API_/g, apis[config.env]))
     .on('error', handleError)
     .pipe($.jshint('.jshintrc'))
     .pipe(gulp.dest('dist/modules'))

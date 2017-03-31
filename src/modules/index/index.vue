@@ -2,7 +2,7 @@
     <div>
         hello!{{name}}
         <list :datas="datas"></list>
-        <a v-link="{path: '/tab'}">tab页面22e</a>
+        <a v-link="{path: '/tab', exact: true, activeClass: 'active'}">tab页面22e</a>
         <p class="hello">dsf ewaff ddsf <span>i am a span element</span><b>efwefw</b></p>
         <div class="test">dfl;aeofw</div>
         <validator name="form">
@@ -18,11 +18,19 @@
         <div v-if="box_3" class="animated" transition="fat">fat</div>
         <div v-if="box_4" class="animated" :transition="transitionName">bounce1225</div>
         <button @click="change()">点击随机隐藏和显示</button> 
+        <ul>
+            <li v-for="item in datas" v-link="{name: 'detail', params: {id:item.id}}">{{item.name}}</li>
+        </ul>
+        <div @click="router.go('detail', params: {id: 1})">测试route.go</div>
+        <div @click="getRes()">getRes</div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
 import Vue from 'vue'
+import api from '../../config/api'
+import rest from '../../config/rest'
+import {toast, helper} from '../../config/helper'
 
     export default {
         data () {
@@ -97,6 +105,13 @@ import Vue from 'vue'
                 for (var i = 1; i < 5; i++) { 
                     this['box_' + i] = Math.random() > 0.5 ? true : false; 
                 } 
+            },
+            getRes() {
+                console.log('测试helper的isNull函数：' + helper.isNull(null));
+                console.log(helper.isNull(NaN));
+                rest.get(api.index, {'a':'b'}).done(function(res) {
+                    console.log('测试rest中的请求函数：' + res);
+                });
             }
         }
     }

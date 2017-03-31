@@ -2,6 +2,7 @@
     <div>
         <ul>
             <li v-for="item in datas" v-link="{name: 'detail', params: {id: item.id}}">{{item.name}}</li>
+            <!-- <li v-for="item in datas" @click="$root.go({name: 'detail', params: {id: item.id}})">{{item.name}}</li> -->
         </ul>
     </div>
 </template>
