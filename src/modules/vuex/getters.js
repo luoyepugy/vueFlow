@@ -1,2 +1,2 @@
 
-export default infos = state => state.infos
+export const infos = state => state.infos

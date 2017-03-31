@@ -17,8 +17,11 @@ import {infos} from './vuex/getters'
 				
 			}
 		},
+		ready() {
+
+		},
 		created() {
-			
+			console.log(setInfos);
 		},
 		compiled() {
 			var that = this;
@@ -35,11 +38,11 @@ import {infos} from './vuex/getters'
 		},
 		store: store,
 		vuex: {
-			actions: { 
-				setInfos
-			},
 			getters: {
 				infos
+			},
+			actions: { 
+				setInfos
 			}
 		}
 	}

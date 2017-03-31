@@ -1,2 +1,2 @@
 
-export default setInfos = ({dispatch}, infos) => dispatch('CHANGE_INFOS', infos)
+export const setInfos = ({dispatch}, infos) => dispatch('CHANGE_INFOS', infos)
