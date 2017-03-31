@@ -16,7 +16,7 @@ module.exports = function(config){
 				},
 				{
 					test: /\.scss$/,
-					loaders: ExtractTextPlugin.extract("css!sass")
+					loaders: ExtractTextPlugin.extract("css-loader!sass-loader")
 				},
 				{
 					test: /\.js$/,

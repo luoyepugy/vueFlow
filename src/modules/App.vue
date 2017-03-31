@@ -7,7 +7,9 @@
 
 <script type="text/ecmascript-6">
 import Vue from 'vue'
-import vueRouter from 'vue-router'
+import store from './vuex/store'
+import {setInfos} from './vuex/actions'
+import {infos} from './vuex/getters'
 
 	export default {
 		data() {
@@ -30,6 +32,15 @@ import vueRouter from 'vue-router'
 		},
 		methods: {
 
+		},
+		store: store,
+		vuex: {
+			actions: { 
+				setInfos
+			},
+			getters: {
+				infos
+			}
 		}
 	}
 
